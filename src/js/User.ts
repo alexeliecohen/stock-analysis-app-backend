@@ -1,20 +1,33 @@
 import faker from '@faker-js/faker';
+import {Stock} from "./Stock";
 
 export class User {
 
-    email: string;
+    email?: string;
 
-    firstName: string;
+    firstName?: string;
 
-    lastName: string;
+    lastName?: string;
 
-    password: string;
+    password?: string;
 
-    location: {
-        latitude: number;
-        longitude: number;
-    };
 
+    constructor(params:User = {} as User) {
+        let {
+            email='',
+            firstName= '',
+            lastName= '',
+            password= ''
+        } = params;
+
+
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+    }
+
+    /*
     constructor() {
 
         this.firstName = faker.name.firstName();
@@ -27,7 +40,7 @@ export class User {
         };
 
 
-    }
+    }*/
 
 }
 
