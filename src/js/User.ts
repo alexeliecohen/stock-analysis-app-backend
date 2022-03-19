@@ -1,33 +1,32 @@
 import faker from '@faker-js/faker';
-import {Stock} from "./Stock";
+import {Stock} from './Stock';
 
 export class User {
+  email?: string;
 
-    email?: string;
+  firstName?: string;
 
-    firstName?: string;
+  lastName?: string;
 
-    lastName?: string;
-
-    password?: string;
-
-
-    constructor(params:User = {} as User) {
-        let {
-            email='',
-            firstName= '',
-            lastName= '',
-            password= ''
-        } = params;
+  password?: string;
 
 
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-    }
+  constructor(params:User = {} as User) {
+    const {
+      email='',
+      firstName= '',
+      lastName= '',
+      password= '',
+    } = params;
 
-    /*
+
+    this.email = email;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.password = password;
+  }
+
+  /*
     constructor() {
 
         this.firstName = faker.name.firstName();
@@ -41,9 +40,8 @@ export class User {
 
 
     }*/
-
 }
 
-//Type definition file is an adapter between the js library
-//and the typescript code we write because js implicitly doesnt
-//have a type
+// Type definition file is an adapter between the js library
+// and the typescript code we write because js implicitly doesnt
+// have a type
