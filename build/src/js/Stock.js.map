@@ -1,0 +1,1 @@
+{"version":3,"file":"Stock.js","sourceRoot":"","sources":["../../../src/js/Stock.ts"],"names":[],"mappings":";;;AAAA,MAAa,KAAK;IAMhB,YAAY,MAAc,EAAE,KAAa,EAAE,QAAgB;QACzD,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;QACrB,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;QACnB,IAAI,CAAC,QAAQ,GAAG,QAAQ,CAAC;IAC3B,CAAC;CACF;AAXD,sBAWC"}

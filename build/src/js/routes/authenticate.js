@@ -12,3 +12,4 @@ router.post('/login', (req, res) => {
 router.post('/register', (req, res) => {
     const { email, firstname, lastName, password } = req.body;
 });
+//# sourceMappingURL=authenticate.js.map

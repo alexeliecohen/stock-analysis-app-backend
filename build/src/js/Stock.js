@@ -9,3 +9,4 @@ class Stock {
     }
 }
 exports.Stock = Stock;
+//# sourceMappingURL=Stock.js.map
