@@ -1,4 +1,4 @@
-import {UserModel} from '../model/User'
+import {User, UserModel} from '../model/User'
 interface CreateUser {
     firstName:string,
     lastName:string,
@@ -7,19 +7,24 @@ interface CreateUser {
 }
 
 interface CRUD {
-    createUser: (user:CreateUser) => Promise<void>;
+    createUser: (user:CreateUser) => Promise<User>;
 }
 
+let userList: Array<User> = []
+
+
 class UserService implements CRUD {
-    async createUser(user: CreateUser): Promise<void> {
+    async createUser(user: CreateUser): Promise<User> {
         const newUser = new UserModel({
             firstName:user.firstName,
             lastName:user.lastName,
             email: user.email,
             password: user.password
         })
-        await newUser.save();
+        userList.push(newUser)
+        return Promise.resolve(newUser);
     }
+
 
 
 

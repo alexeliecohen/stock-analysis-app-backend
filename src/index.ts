@@ -6,12 +6,7 @@ const app = express();
 
 app.use(bodyParser.json())
 
-function hello() {
-
-}
-
 app.use(router);
-
 
 app.listen(3000, () => {
     console.log('listening to port 3000');

@@ -3,6 +3,7 @@ import {User} from '../model/User';
 const router = Router();
 
 
+
 router.post('/login', (req, res) => {
   const {email, password} = req.body;
   console.log(email, password);

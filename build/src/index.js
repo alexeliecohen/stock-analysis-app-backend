@@ -8,8 +8,6 @@ const authenticate_1 = require("./js/routes/authenticate");
 const body_parser_1 = __importDefault(require("body-parser"));
 const app = (0, express_1.default)();
 app.use(body_parser_1.default.json());
-function hello() {
-}
 app.use(authenticate_1.router);
 app.listen(3000, () => {
     console.log('listening to port 3000');

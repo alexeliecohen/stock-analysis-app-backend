@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const User_1 = require("../model/User");
+let userList = [];
 class UserService {
     async createUser(user) {
         const newUser = new User_1.UserModel({
@@ -9,7 +10,8 @@ class UserService {
             email: user.email,
             password: user.password
         });
-        await newUser.save();
+        userList.push(newUser);
+        return Promise.resolve(newUser);
     }
 }
 //# sourceMappingURL=UserService.js.map
