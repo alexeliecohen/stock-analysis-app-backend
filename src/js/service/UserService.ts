@@ -24,8 +24,4 @@ class UserService implements CRUD {
         userList.push(newUser)
         return Promise.resolve(newUser);
     }
-
-
-
-
 }
