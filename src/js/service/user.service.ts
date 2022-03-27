@@ -1,4 +1,4 @@
-import {User, UserModel} from '../model/User'
+import {UserModel} from '../model/user.model'
 interface CreateUser {
     firstName:string,
     lastName:string,
@@ -7,14 +7,14 @@ interface CreateUser {
 }
 
 interface CRUD {
-    createUser: (user:CreateUser) => Promise<User>;
+    createUser: (user:CreateUser) => UserModel;
 }
 
-let userList: Array<User> = []
+let userList: Array<UserModel> = []
 
 
 class UserService implements CRUD {
-    async createUser(user: CreateUser): Promise<User> {
+    createUser(user: CreateUser): UserModel {
         const newUser = new UserModel({
             firstName:user.firstName,
             lastName:user.lastName,
@@ -22,6 +22,6 @@ class UserService implements CRUD {
             password: user.password
         })
         userList.push(newUser)
-        return Promise.resolve(newUser);
+        return newUser;
     }
 }

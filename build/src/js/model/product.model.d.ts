@@ -1,4 +1,4 @@
-export declare class Product {
+export declare class ProductModel {
     static incr: number;
     id: number;
     name: string;

@@ -1,8 +1,6 @@
 import {Router} from 'express';
-import {User} from '../model/User';
+import {UserModel} from '../model/user.model';
 const router = Router();
-
-
 
 router.post('/login', (req, res) => {
   const {email, password} = req.body;

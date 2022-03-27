@@ -8,8 +8,8 @@ const schema = new mongoose_1.Schema({
     lastName: { type: String, required: true },
     password: { type: String, required: true }
 });
-exports.UserModel = (0, mongoose_1.model)('User', schema);
-// export class User {
+exports.UserModel = (0, mongoose_1.model)('UserModel', schema);
+// export class UserModel {
 //   email?: string;
 //
 //   firstName?: string;
@@ -19,7 +19,7 @@ exports.UserModel = (0, mongoose_1.model)('User', schema);
 //   password?: string;
 //
 //
-//   constructor(params:User = {} as User) {
+//   constructor(params:UserModel = {} as UserModel) {
 //     const {
 //       email='',
 //       firstName= '',
@@ -52,3 +52,4 @@ exports.UserModel = (0, mongoose_1.model)('User', schema);
 // Type definition file is an adapter between the js library
 // and the typescript code we write because js implicitly doesnt
 // have a type
+//# sourceMappingURL=user.model.js.map

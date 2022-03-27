@@ -1,14 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModel = void 0;
-const mongoose_1 = require("mongoose");
-const schema = new mongoose_1.Schema({
-    email: { type: String, required: true },
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    password: { type: String, required: true }
-});
-exports.UserModel = (0, mongoose_1.model)('User', schema);
+import { Schema, model, connect } from 'mongoose';
+
+export interface UserModel {
+  email:string;
+
+  firstName:string;
+
+  lastName:string;
+
+  password:string;
+}
+
+const schema = new Schema<UserModel>({
+  email: {type:String, required:true},
+  firstName: {type:String, required:true},
+  lastName: {type:String, required:true},
+  password: {type:String, required:true}
+})
+
+export const UserModel = model<UserModel>('UserModel', schema);
+
+
 // export class UserModel {
 //   email?: string;
 //
@@ -49,7 +60,7 @@ exports.UserModel = (0, mongoose_1.model)('User', schema);
 //
 //     }*/
 // }
+
 // Type definition file is an adapter between the js library
 // and the typescript code we write because js implicitly doesnt
 // have a type
-//# sourceMappingURL=user.model.js.map

@@ -1,26 +1,15 @@
-import { Schema, model, connect } from 'mongoose';
-
-export interface User {
-  email:string;
-
-  firstName:string;
-
-  lastName:string;
-
-  password:string;
-}
-
-const schema = new Schema<User>({
-  email: {type:String, required:true},
-  firstName: {type:String, required:true},
-  lastName: {type:String, required:true},
-  password: {type:String, required:true}
-})
-
-export const UserModel = model<User>('User', schema);
-
-
-// export class User {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserModel = void 0;
+const mongoose_1 = require("mongoose");
+const schema = new mongoose_1.Schema({
+    email: { type: String, required: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    password: { type: String, required: true }
+});
+exports.UserModel = (0, mongoose_1.model)('User', schema);
+// export class UserModel {
 //   email?: string;
 //
 //   firstName?: string;
@@ -30,7 +19,7 @@ export const UserModel = model<User>('User', schema);
 //   password?: string;
 //
 //
-//   constructor(params:User = {} as User) {
+//   constructor(params:UserModel = {} as UserModel) {
 //     const {
 //       email='',
 //       firstName= '',
@@ -60,7 +49,6 @@ export const UserModel = model<User>('User', schema);
 //
 //     }*/
 // }
-
 // Type definition file is an adapter between the js library
 // and the typescript code we write because js implicitly doesnt
 // have a type
