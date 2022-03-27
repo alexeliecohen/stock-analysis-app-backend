@@ -1,12 +1,4 @@
-export declare class ProductModel {
-    static incr: number;
-    id: number;
-    name: string;
-    price: number;
-    quantity: number;
-    constructor(body: {
-        name: string;
-        price: number;
-        quantity: number;
-    });
-}
+import mongoose from "mongoose";
+import IProduct from "../interfaces/product.interface";
+declare const _default: mongoose.Model<IProduct, {}, {}, {}>;
+export default _default;

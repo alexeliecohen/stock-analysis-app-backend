@@ -1,12 +1,14 @@
 import {UserModel} from "../model/user.model";
-import {ProductModel} from "../model/product.model";
 import { Request} from 'express';
+import Product from "../model/product.model";
+import IProduct from "../interfaces/product.interface";
+import mongoose from "mongoose";
 
 interface CRUD {
-    create: (product: Request) => Promise<ProductModel>;
+    create: (product: Request) => Promise<IProduct>;
 
 }
-let productList: Array<ProductModel> = []
+let productList: Array<IProduct> = []
 
 
 export class ProductService implements CRUD {
@@ -14,9 +16,17 @@ export class ProductService implements CRUD {
     constructor() {
     }
 
-    async create(product: Request): Promise<ProductModel> {
-        const newProduct:ProductModel = new ProductModel(product.body);
-        productList.push(newProduct);
-        return Promise.resolve(newProduct);
+    async create(product: Request): Promise<IProduct> {
+        let {name, price, quantity} = product.body;
+        const newProduct = new Product({
+            _id: new mongoose.Types.ObjectId(),
+            name,
+            price,
+            quantity
+        });
+        return newProduct.save()
+            .then(result => {
+                return Promise.resolve(newProduct)
+            });
     }
 }
