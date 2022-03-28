@@ -9,6 +9,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const config_1 = __importDefault(require("./js/config/config"));
 const logging_1 = __importDefault(require("./js/config/logging"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 const NAMESPACE = 'Server';
 mongoose_1.default.connect(config_1.default.mongo.url, config_1.default.mongo.options)
@@ -20,7 +21,9 @@ mongoose_1.default.connect(config_1.default.mongo.url, config_1.default.mongo.op
 });
 // mongoose.connect("mongodb://admin:password@localhost:27017")
 app.use(body_parser_1.default.json());
+app.use((0, cors_1.default)());
 app.use(product_route_1.router);
+const whitelist = ["http://localhost:3000"];
 app.listen(3000, () => {
     console.log('listening to port 3000');
 });

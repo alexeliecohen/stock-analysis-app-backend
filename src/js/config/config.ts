@@ -11,9 +11,10 @@ const MONGO_OPTIONS = {
     retryWrites: false
 };
 
-const MONGO_USERNAME = /*process.env.MONGO_USERNAME ||*/ 'admin';
-const MONGO_PASSWORD = /*process.env.MONGO_USERNAME ||*/ 'password';
-const MONGO_HOST = /*process.env.MONGO_URL ||*/ `db:27017`;
+const MONGO_USERNAME = process.env.MONGO_USERNAME || 'admin';
+const MONGO_PASSWORD = process.env.MONGO_USERNAME || 'password';
+const MONGO_HOST = process.env.MONGO_URL || `127.0.0.1:27017`;
+const MONGO_DB = process.env.MONGO_URL || `products`;
 
 const MONGO = {
     host: MONGO_HOST,
@@ -21,7 +22,7 @@ const MONGO = {
     username: MONGO_USERNAME,
     options: MONGO_OPTIONS,
     // url: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`
-    url: `mongo://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`
+    url: `mongodb://${MONGO_HOST}/${MONGO_DB}`
 };
 
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';

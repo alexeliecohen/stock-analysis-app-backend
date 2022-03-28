@@ -1,4 +1,3 @@
-import {UserModel} from "../model/user.model";
 import { Request} from 'express';
 import Product from "../model/product.model";
 import IProduct from "../interfaces/product.interface";
@@ -6,9 +5,9 @@ import mongoose from "mongoose";
 
 interface CRUD {
     create: (product: Request) => Promise<IProduct>;
+    getAll: (product: Request) => Promise<IProduct[]>
 
 }
-let productList: Array<IProduct> = []
 
 
 export class ProductService implements CRUD {
@@ -28,5 +27,9 @@ export class ProductService implements CRUD {
             .then(result => {
                 return Promise.resolve(newProduct)
             });
+    }
+
+    async getAll(product: Request): Promise<IProduct[]> {
+        return Product.find({});
     }
 }

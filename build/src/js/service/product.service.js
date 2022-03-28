@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductService = void 0;
 const product_model_1 = __importDefault(require("../model/product.model"));
 const mongoose_1 = __importDefault(require("mongoose"));
-let productList = [];
 class ProductService {
     constructor() {
     }
@@ -22,6 +21,9 @@ class ProductService {
             .then(result => {
             return Promise.resolve(newProduct);
         });
+    }
+    async getAll(product) {
+        return product_model_1.default.find({});
     }
 }
 exports.ProductService = ProductService;
